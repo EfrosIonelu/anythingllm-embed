@@ -38,7 +38,8 @@ const DEFAULT_SETTINGS = {
   supportEmail: null, // string of email for contact
   username: null, // The display or readable name set on a script
   defaultMessages: [], // list of strings for default messages.
-  disableSessionId: false // disable session id copy functionality.
+  disableSessionId: false, // disable session id copy functionality.
+  showBottomSection: true, // show the bottom section of the chat window
 };
 
 export default function useGetScriptAttributes() {

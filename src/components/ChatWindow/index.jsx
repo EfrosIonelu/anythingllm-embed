@@ -51,15 +51,15 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
           knownHistory={chatHistory}
         />
       </div>
-      <div className="allm-mt-4 allm-pb-4 allm-h-fit allm-gap-y-2 allm-z-10">
-        <Sponsor settings={settings} />
-        <ResetChat
-          setChatHistory={setChatHistory}
-          settings={settings}
-          sessionId={sessionId}
-          closeChat={closeChat}
-        />
-      </div>
+        {settings.showBottomSection !== "0" && (<div className="allm-mt-4 allm-pb-4 allm-h-fit allm-gap-y-2 allm-z-10">
+            <Sponsor settings={settings} />
+            <ResetChat
+                setChatHistory={setChatHistory}
+                settings={settings}
+                sessionId={sessionId}
+                closeChat={closeChat}
+            />
+        </div>)}
     </div>
   );
 }
