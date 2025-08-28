@@ -108,13 +108,14 @@ function OptionsMenu({ settings, showing, resetChat, sessionId, menuRef }) {
         <p className="allm-text-[14px]">Reset Chat</p>
       </button>
       <ContactSupport email={settings.supportEmail} />
-      <SessionID sessionId={sessionId} />
+      <SessionID settings={settings} sessionId={sessionId} />
     </div>
   );
 }
 
-function SessionID({ sessionId }) {
+function SessionID({ settings, sessionId }) {
   if (!sessionId) return null;
+  if (settings.disableSessionId) return null;
 
   const [sessionIdCopied, setSessionIdCopied] = useState(false);
 
