@@ -178,21 +178,6 @@ export default function ChatContainer({
 
         socket.addEventListener("close", (_event) => {
           window.dispatchEvent(new CustomEvent(AGENT_SESSION_END));
-          setChatHistory((prev) => [
-            ...prev.filter((msg) => !!msg.content),
-            {
-              uuid: v4(),
-              type: "statusResponse",
-              content: "Agent session complete.",
-              role: "assistant",
-              sources: [],
-              closed: true,
-              error: null,
-              animate: false,
-              pending: false,
-              sentAt: Math.floor(Date.now() / 1000),
-            },
-          ]);
           setLoadingResponse(false);
           setWebsocket(null);
           setSocketId(null);

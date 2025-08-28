@@ -5,7 +5,6 @@ import ChatContainer from "./ChatContainer";
 import Sponsor from "../Sponsor";
 import { ChatHistoryLoading } from "./ChatContainer/ChatHistory";
 import ResetChat from "../ResetChat";
-import AgentIndicator from "../AgentIndicator";
 
 export default function ChatWindow({ closeChat, settings, sessionId }) {
   const { chatHistory, setChatHistory, loading } = useChatHistory(
@@ -45,7 +44,6 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
           setChatHistory={setChatHistory}
         />
       )}
-      <AgentIndicator />
       <div className="allm-flex-grow allm-overflow-y-auto">
         <ChatContainer
           sessionId={sessionId}

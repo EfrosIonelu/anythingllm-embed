@@ -22,7 +22,7 @@ export function websocketURI(embedSettings) {
 export default function handleSocketResponse(event, setChatHistory) {
   const data = safeJsonParse(event.data, null);
   if (data === null) return;
-
+  if (data.type === 'statusResponse') return;
   // No message type is defined then this is a generic message
   // that we need to print to the user as a system response
   if (!data.hasOwnProperty("type")) {

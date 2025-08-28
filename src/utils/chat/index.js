@@ -24,11 +24,6 @@ export default function handleChat(
   const lastMessage = _chatHistory[_chatHistory.length - 1];
   const sentAt = lastMessage?.sentAt;
 
-  console.log("--------");
-  console.log("--------");
-  console.log("--------");
-  console.log(chatResult);
-
   if (type === "abort") {
     setLoadingResponse(false);
     setChatHistory([
@@ -122,35 +117,6 @@ export default function handleChat(
     setSocketId(websocketUUID);
   } else if (type === "statusResponse") {
     setLoadingResponse(false);
-    setChatHistory([
-      ...remHistory,
-      {
-        uuid,
-        type: "statusResponse",
-        content: textResponse,
-        role: "assistant",
-        sources,
-        closed: true,
-        error,
-        errorMsg,
-        animate: false,
-        pending: false,
-        sentAt,
-      },
-    ]);
-    _chatHistory.push({
-      uuid,
-      type: "statusResponse",
-      content: textResponse,
-      role: "assistant",
-      sources,
-      closed: true,
-      error,
-      errorMsg,
-      animate: false,
-      pending: false,
-      sentAt,
-    });
   }
 }
 
